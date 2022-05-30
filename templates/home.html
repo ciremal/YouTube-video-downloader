@@ -1,0 +1,18 @@
+{% extends "base.html" %} {% block title %}YouTube to MP4{% endblock %}
+{% block content %}
+
+<form method="POST">
+    <h1 align="center" style="margin-top: 150px;">Welcome</h1>
+    <h2 align="center">YouTube to MP4 Downloader</h2>
+    <div class="form-group">
+        <input type="url"
+            class="form-control form-control-lg"
+            id="url"
+            name="url"
+            placeholder="Enter YouTube video URL">
+    </div>
+    <br />
+    <button type="submit" class="btn btn-dark btn-lg">Enter</button>
+</form>
+
+{% endblock %}

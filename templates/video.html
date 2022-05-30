@@ -1,0 +1,22 @@
+{% extends "base.html" %} {% block title %}YouTube to MP4{% endblock %}
+{% block content %}
+
+<section class="jumbotron text-center" style="background-color:rgb(81, 81, 81); margin: 20px 0px 20px 0px; color: white;">
+    <h1>Video Info</h1>
+    <h3>Video Title:</h3><p>{{ my_video.title }}</p>
+    <h3>Video Author:</h3><p>{{ my_video.author }}</p>
+    <h3>Video Description:</h3><p>{{ my_video.description }}</p>
+    <h3>Video Publish Date:</h3><p>{{ my_video.publish_date }}</p>
+    <h3>Download Method:</h3>
+    <div class="row justify-content-center">
+        <div style="margin: 0px 10px 0px 10px;">
+            <p><a class="btn btn-light" href="/downloadMP4" role="button">Download MP4 Now</a></p>
+        </div>
+        <div style="margin: 0px 10px 0px 10px;">
+            <p><a class="btn btn-light" href="/downloadMP3" role="button">Download Audio Only Now</a></p>
+        </div>
+    </div>
+    <p>Please wait a moment after selecting download method. May take a while depending on video size.</p>
+</section>
+
+{% endblock %}
