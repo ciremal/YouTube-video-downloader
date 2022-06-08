@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import filedialog
+from tkinter import Tk, filedialog
 from flask import Blueprint, flash, redirect, render_template, request, session, url_for
 from pytube import YouTube
 
@@ -29,9 +29,12 @@ def video():
 
 @views.route('/downloadMP4', methods=['GET', 'POST'])
 def downloadMP4():
-    root = tk.Tk()
-    path = filedialog.askdirectory()
+    root = Tk()
     root.withdraw()
+    root.wm_attributes('-topmost', 1) # Opens file dialog in front of all windows
+    path = filedialog.askdirectory() # Open directory
+    root.destroy()
+
     my_url = session.get('my_url', None)
     my_video = YouTube(my_url)
     my_video = my_video.streams.get_highest_resolution()
@@ -40,9 +43,12 @@ def downloadMP4():
 
 @views.route('/downloadMP3', methods=['GET', 'POST'])
 def downloadMp3():
-    root = tk.Tk()
-    path = filedialog.askdirectory()
+    root = Tk()
     root.withdraw()
+    root.wm_attributes('-topmost', 1) # Opens file dialog in front of all windows
+    path = filedialog.askdirectory() # Open directory
+    root.destroy() 
+
     my_url = session.get('my_url', None)
     my_video = YouTube(my_url)
     my_video = my_video.streams.get_audio_only()
